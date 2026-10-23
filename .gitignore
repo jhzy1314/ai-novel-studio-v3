@@ -1,0 +1,31 @@
+# Build output
+server.exe
+/server
+*.exe
+*.exe~
+
+# Runtime data (user novels, keys, backups, logs, uploaded backgrounds)
+data/
+log/
+/static/
+server.pid
+configs/config.yaml
+configs/settings.json
+
+# Secrets / local overrides
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.tmp
+*.bak
+*.log
+.preview/

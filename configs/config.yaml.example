@@ -1,0 +1,111 @@
+# ============================================================
+#  AI Novel Studio v3.0 · 配置模板
+#  复制为 config.yaml；或在软件「API」面板中填写 Key（推荐）。
+#  API Key 也可以放在环境变量里，优先级高于本文件：
+#    AI_NOVEL_MODEL_DEEPSEEK_V4_PRO_APIKEY=sk-...
+# ============================================================
+
+appearance:
+    allowed_types:
+        - png
+        - jpg
+        - jpeg
+        - webp
+    backgrounds_dir: static/backgrounds
+    current_empty_bg: empty-state.svg
+    current_sider_bg: sider-texture.svg
+    current_sider_light_bg: sider-texture-light.svg
+    library:
+        - file: sider-texture.svg
+          name: 深色质感纹理
+          theme: dark
+          type: sider
+        - file: sider-texture-2.svg
+          name: 科技六边格
+          theme: dark
+          type: sider
+        - file: sider-texture-ink.svg
+          name: 墨韵书斋
+          theme: dark
+          type: sider
+        - file: sider-texture-light.svg
+          name: 浅色质感纹理
+          theme: light
+          type: sider
+        - file: sider-texture-light-2.svg
+          name: 暖色波纹
+          theme: light
+          type: sider
+        - file: empty-state.svg
+          name: 极简空状态
+          theme: light
+          type: empty
+        - file: empty-state-2.svg
+          name: 文档卡片
+          theme: light
+          type: empty
+        - file: empty-state-3.svg
+          name: 禅意菱形
+          theme: light
+          type: empty
+    max_file_size: 5242880
+
+# ---- 模型池 ----
+# name 必须与厂商真实模型 ID 一致；也可以启动后在「API」面板新增。
+models:
+    - name: deepseek-v4-pro
+      vendor: DeepSeek
+      api_endpoint: https://api.deepseek.com
+      api_key: sk-your-deepseek-key-here
+      status: active
+      daily_limit: 0
+    - name: deepseek-v4-flash
+      vendor: DeepSeek
+      api_endpoint: https://api.deepseek.com
+      api_key: sk-your-deepseek-key-here
+      status: active
+      daily_limit: 0
+    - name: kimi-k3
+      vendor: Kimi
+      api_endpoint: https://api.moonshot.cn/v1
+      api_key: sk-your-moonshot-key-here
+      status: active
+      daily_limit: 0
+    - name: glm-5.2
+      vendor: 智谱 GLM
+      api_endpoint: https://open.bigmodel.cn/api/paas/v4
+      api_key: sk-your-bigmodel-key-here
+      status: active
+      daily_limit: 0
+
+# ---- 角色绑定 ----
+role_models:
+    thinker:
+        - deepseek-v4-pro
+    worker:
+        - deepseek-v4-pro
+    verifier:
+        - deepseek-v4-pro
+    helper:
+        - deepseek-v4-flash
+
+# ---- 成本与限流（0 = 不限制） ----
+quotas:
+    daily_call_limit: 0
+    daily_token_limit: 0
+    light_input_char_limit: 500
+    max_concurrent: 5
+    max_iterations: 3
+    per_request_token_limit: 32000
+    rate_limit_per_minute: 20
+    warn_ratio: 0.8
+
+# ---- 服务 ----
+server:
+    auth_password: ""              # 留空 = 本机免密；监听非回环地址时请务必设置
+    cookie_encrypt_key: ""         # 留空自动生成 data/cookie_key
+    listen_addr: 127.0.0.1         # 本地优先，只监听本机
+    log_dir: log
+    port: 8082
+    sqlite_path: data/ai-novel.db
+    library_dir: data/library

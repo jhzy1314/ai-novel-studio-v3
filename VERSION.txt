@@ -1,0 +1,7 @@
+V3 · AI Novel Studio
+====================
+Version: 3.0.0
+Edition: Prose & aesthetics upgrade (AI creation + Prose Lab)
+Entry:   start.bat  ->  http://127.0.0.1:8082/
+Docs:    README.md, docs/API.md, docs/ARCHITECTURE.md, docs/CHANGELOG.md
+Data:    data/ai-novel.db (created on first run)
